@@ -20,6 +20,10 @@ pythonenv*/
 
 *.lib
 *.a
+*.la
+*.o
+*.lo
+*.Plo
 *.obj
 *.dylib
 *.xz
@@ -31,6 +35,9 @@ pythonenv*/
 obj*/
 !devtools/*.mak
 !utils/smdlexp/smdlexp.mak
+*.project
+devtools/bin/vpc_linux
+external/vpc/utils/vpc/obj
 
 # Specific Source build products
 client.pdb
@@ -43,6 +50,9 @@ server.lib
 client.so
 server.so
 server_srv.so
+libtier0.so
+libvstdlib.so
+libtogl.so
 
 client.dylib
 client.dylib.dSYM/
@@ -63,7 +73,6 @@ config.cfg
 # required upgraded/modified protobuf projects
 !thirdparty/protobuf-2.5.0/vsprojects/*.vcxproj
 *.iobj
-*.pch
 *.pdb
 *.ipdb
 *.dbg
@@ -79,6 +88,44 @@ Debug/
 Debug_*/
 *.tlog/
 UpgradeLog*.htm
+
+# third party build products
+thirdparty/protobuf-2.6.1/src/Makefile.in
+thirdparty/protobuf-2.6.1/protobuf.pc
+thirdparty/protobuf-2.6.1/autom4te.cache
+thirdparty/protobuf-2.6.1/compile
+thirdparty/protobuf-2.6.1/stamp-h1
+thirdparty/protobuf-2.6.1/Makefile
+thirdparty/protobuf-2.6.1/Makefile.in
+thirdparty/protobuf-2.6.1/libtool
+thirdparty/protobuf-2.6.1/config.log
+thirdparty/protobuf-2.6.1/protobuf-lite.pc
+thirdparty/protobuf-2.6.1/aclocal.m4
+thirdparty/protobuf-2.6.1/gtest/configure
+thirdparty/protobuf-2.6.1/configure
+thirdparty/protobuf-2.6.1/src/protoc
+thirdparty/protobuf-2.6.1/src/unittest_proto_middleman
+thirdparty/protobuf-2.6.1/**/Makefile
+thirdparty/protobuf-2.6.1/**/Makefile.in
+thirdparty/protobuf-2.6.1/**/libtool
+thirdparty/protobuf-2.6.1/**/.dirstamp
+thirdparty/protobuf-2.6.1/gtest/config.status
+thirdparty/protobuf-2.6.1/gtest/scripts/gtest-config
+thirdparty/protobuf-2.6.1/gtest/build-aux/config.h
+thirdparty/protobuf-2.6.1/**/stamp-h1
+thirdparty/protobuf-2.6.1/config.h
+thirdparty/protobuf-2.6.1/config.status
+thirdparty/protobuf-2.6.1/test-driver
+thirdparty/protobuf-2.6.1/missing
+thirdparty/protobuf-2.6.1/**/.deps
+thirdparty/protobuf-2.6.1/**/.libs
+thirdparty/protobuf-2.6.1/src/google/protobuf/compiler/cpp/cpp_test_bad_identifiers.pb.*
+thirdparty/protobuf-2.6.1/src/google/protobuf/unittest*.pb.*
+thirdparty/protobuf-2.6.1/src/google/protobuf/.deps/
+thirdparty/protobuf-2.6.1/src/google/protobuf/.dirstamp
+thirdparty/protobuf-2.6.1/src/google/protobuf/.libs/
+
+thirdparty/libpng-1.5.2/pngtest
 
 # ignore generated protobufs
 generated_proto*/
