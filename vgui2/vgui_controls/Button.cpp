@@ -688,6 +688,7 @@ void Button::SetReleasedSound(const char *sound)
 	}
 }
 
+#if defined(GNUC)
 // NOTE(melvyn2) optimization disabled, beacause on gcc alone (not clang) this is wrongly optimized
 //-----------------------------------------------------------------------------
 // Purpose: Set button to be mouse clickable or not.
@@ -705,6 +706,21 @@ void __attribute__((optimize("O0"))) Button::SetMouseClickEnabled(MouseCode code
 		_mouseClickMask&=~(1<<((int)(code+1)));
 	}	
 }
+#else
+void Button::SetMouseClickEnabled(MouseCode code, bool state)
+{
+	if (state)
+	{
+		//set bit to 1
+		_mouseClickMask |= 1 << ((int)(code + 1));
+	}
+	else
+	{
+		//set bit to 0
+		_mouseClickMask &= ~(1 << ((int)(code + 1)));
+	}
+}
+#endif // POSIX
 
 //-----------------------------------------------------------------------------
 // Purpose: Check if button is mouse clickable

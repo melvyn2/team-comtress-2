@@ -27,8 +27,12 @@ $Configuration
 	$Compiler
 	{
 		$PreprocessorDefinitions	"$BASE;fopen=dont_use_fopen"
+	}
+
+	$Compiler [$LINUXALL]
+	{
 		$ForceIncludes				" "
-		$GCC_ExtraLinkerFlags		"-Wl,-rpath=\$$ORIGIN/bin -Wl,-rpath=\$$ORIGIN/tf/bin"
+		$GCC_ExtraLinkerFlags		"-Wl,-rpath=\$$ORIGIN/bin -Wl,-rpath=\$$ORIGIN/tf/bin" 
 	}
 
 	$Linker [$WIN32]
