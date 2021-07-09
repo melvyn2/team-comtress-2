@@ -17,9 +17,9 @@ $CustomBuildStep "proto"
 					"$SRCDIR/thirdparty/protobuf-2.6.1/bin/osx32/libc++/protoc" \
 					" --proto_path=$SRCDIR/thirdparty/protobuf-2.6.1/src --proto_path=$(InputDir) --proto_path=$SRCDIR\gcsdk --proto_path=$SRCDIR\game\shared" \
 					" $ADDITIONAL_PROTOC_ARGS --cpp_out=$GENERATED_PROTO_DIR $(InputPath)" [$OSXALL]
-
+	// TODO(melvyn2) maybe build protobuf using vpc
 	$CommandLine	"mkdir $GENERATED_PROTO_DIR 2> /dev/null;"  \
-					"$SRCDIR/thirdparty/protobuf-2.6.1/bin/linux32/protoc --proto_path=$SRCDIR\thirdparty\protobuf-2.6.1\src" \
+					"$SRCDIR/thirdparty/protobuf-2.6.1/src/protoc --proto_path=$SRCDIR\thirdparty\protobuf-2.6.1\src" \
 					" --proto_path=$(InputDir) --proto_path=$SRCDIR\gcsdk --proto_path=$SRCDIR\game\shared" \
 					" $ADDITIONAL_PROTOC_ARGS --cpp_out=$GENERATED_PROTO_DIR $(InputPath)" [$LINUXALL]
 
@@ -32,7 +32,8 @@ $Configuration
 	$Compiler
 	{
 		// General
-		$AdditionalIncludeDirectories		"$BASE;$GENERATED_PROTO_DIR;$SRCDIR\thirdparty\protobuf-2.5.0\src"
+		$AdditionalIncludeDirectories		"$BASE;$GENERATED_PROTO_DIR;$SRCDIR\thirdparty\protobuf-2.5.0\src"	[$WINDOWS]
+		$AdditionalIncludeDirectories		"$BASE;$GENERATED_PROTO_DIR;$SRCDIR\thirdparty\protobuf-2.6.1\src"	[$LINUXALL||$OSXALL]
 	}
 }
 
