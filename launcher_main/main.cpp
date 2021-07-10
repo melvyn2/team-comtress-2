@@ -218,7 +218,7 @@ int main( int argc, char *argv[] )
 	void *launcher = dlopen( "bin/launcher" DLL_EXT_STRING, RTLD_NOW );
 	if ( !launcher )
 	{
-		fprintf( stderr, "Failed to load the launcher\n" );
+		fprintf( stderr, "Failed to load the launcher:\n%s", dlerror() );
 		return 0;
 	}
 	
